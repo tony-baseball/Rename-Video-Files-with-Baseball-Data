@@ -47,7 +47,7 @@ csv_rename <- csv %>%
 
 # Next, let's load in our directory where the video files are at
 
-video_folder <- "C:/Users/tdmed/OneDrive/_Github/Rename-Video-Files-with-Baseball-Data/video_files_pitches_out_of_order/"
+video_folder <- "C:/Users/tdmed/OneDrive/_Github/Rename-Video-Files-with-Baseball-Data/_Random Pitches/video_files_pitches_out_of_order/"
 
 videos <- file.info(list.files(video_folder ,pattern = "*.MOV", full.names = TRUE)) %>% tibble::rownames_to_column("file")
 # we also have 13 video files! success!
@@ -72,5 +72,7 @@ combined <- videos_details %>%
 combined
 # now the fun part
 # time to rename!
+
 file.rename(from = paste0(combined$file),
-            to = paste0(video_folder, videos_details$vid_name))
+            to = paste0(video_folder, combined$vid_name))
+
