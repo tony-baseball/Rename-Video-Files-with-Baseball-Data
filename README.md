@@ -40,7 +40,7 @@ csv dataframe
 
 csv dataframe - an example if you were to do it with pitcher info!
 
-![](https://github.com/tony-baseball/Rename-Video-Files-with-Baseball-Data/blob/main/_Random%20Pitches/df%201%20csv_rename%20pitcher.png)
+![](https://github.com/tony-baseball/Rename-Video-Files-with-Baseball-Data/blob/main/_Random%20Pitches/df%201%20csv_rename%20pitcher%20example.png)
 
 video_details dataframe 
 
