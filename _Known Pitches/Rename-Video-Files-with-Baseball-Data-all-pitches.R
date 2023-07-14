@@ -9,16 +9,11 @@ library(stringr)
  
 
 #first load our games CSV
-csv <- read.csv("C:/Users/tdmed/OneDrive/_Github/Rename-Video-Files-with-Baseball-Data/05-26 BOOM vs NYB 304 YT.csv") %>%
+csv <- read.csv("05-26 BOOM vs NYB 304 YT.csv") %>%
   # For this specific example, I know that I'm using video from only the bottom of the first, so lets filter
   filter(`Top.Bottom` == 'Bottom' & Inning == 1) %>%
 # the result is 13 pitches in the bottom of the first. now let's keep the columns to use when we rename
   dplyr::select(PitchNo,Batter,PitchCall,HitType, PlayResult, ExitSpeed) 
-
-# lets replace these long words in the df
-x <- c("BallCalled","StrikeCalled",'HitByPitch','StrikeSwinging', 'InPlay')
-y <- c('Ball', 'Strike', 'HBP', 'StrSw', '')
-str_replace_all(x, colours, col2hex)
 
 # copy to new df
 csv_rename <- csv %>%
@@ -40,9 +35,9 @@ csv_rename <- csv %>%
 
 # Next, let's load in our directory where the video files are at
 
-video_folder <- "C:/Users/tdmed/OneDrive/_Github/Rename-Video-Files-with-Baseball-Data/video_files/"
+video_folder <- "video_files/"
 
-videos <- file.info(list.files(video_folder ,pattern = "*.mp4")) %>% tibble::rownames_to_column("file")
+videos <- file.info(list.files(video_folder ,pattern = "*.mp4", full.names = TRUE)) %>% tibble::rownames_to_column("file")
 # we also have 13 video files! success!
 videos_details <- videos %>%
   mutate(datetime = mtime) %>%

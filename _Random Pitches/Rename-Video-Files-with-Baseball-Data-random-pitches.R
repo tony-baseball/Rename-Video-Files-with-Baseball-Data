@@ -14,7 +14,7 @@ library(fuzzyjoin)
  
 
 #first load our games CSV
-csv <- read.csv("C:/Users/tdmed/OneDrive/_Github/Rename-Video-Files-with-Baseball-Data/05-26 BOOM vs NYB 304 YT.csv") %>%
+csv <- read.csv("05-26 BOOM vs NYB 304 YT.csv") %>%
   # For this specific example, I know that I'm using video from only the bottom of the first, so lets filter
   filter(`Top.Bottom` == 'Bottom' & Inning == 1) %>%
   # we will filter further, because I know the first video I captured was Chase Dawson ground out!
@@ -47,7 +47,7 @@ csv_rename <- csv %>%
 
 # Next, let's load in our directory where the video files are at
 
-video_folder <- "C:/Users/tdmed/OneDrive/_Github/Rename-Video-Files-with-Baseball-Data/_Random Pitches/video_files_pitches_out_of_order/"
+video_folder <- "/video_files_pitches_out_of_order/"
 
 videos <- file.info(list.files(video_folder ,pattern = "*.MOV", full.names = TRUE)) %>% tibble::rownames_to_column("file")
 # we also have 13 video files! success!
@@ -66,7 +66,9 @@ videos_details <- videos %>%
 combined <- videos_details %>%
   fuzzy_left_join(csv_rename, 
                   by = c("time_zero"), 
-                  match_fun = function(x, y) abs(x - y) <= 5)
+                  match_fun = function(x, y) abs(x - y) <= 5) %>%
+  # filter out video where a pitch was not recorded in Yakkertech, Trackman, or Rapsodo. Sometimes those systems bug out and don't read a pitch!
+  filter(!is.na(vid_name))
 
 # as you can now see, the df now has the video files with the pitch infor together. Now we rename the videos!
 combined
