@@ -11,9 +11,42 @@ With this code, you can rename your high speed video clips (Edgertronic, Sony, [
 **_Whatever device your video is stored on, copy it to a folder on you hard drive or other drive. Never work with the original video file in case you royally mess it up!_**
 - In R we are going to be loading the CSV and the folder details of our videos. 
 - With this version, the # of pitches and the # of clips should line up easily. It just becomes a matter of what data you want to use from the csv to rename the video files.
-Example: 1 deGrom FB 98mph.mp4, 2 deGrom SL 90mph.mp4 ; 15 Trout LD HR EV-105.mp4
+- Example: 1 deGrom FB 98mph.mp4, 2 deGrom SL 90mph.mp4 ; 15 Trout LD HR EV-105.mp4
+
+
+Here is a screenshot of the video folder before renaming!
+![](https://github.com/tony-baseball/Rename-Video-Files-with-Baseball-Data/blob/main/_Known%20Pitches/video%20folder%201%20after%20rename.png)
+
+
+
+
+
+Here is the after!
+
+![](https://github.com/tony-baseball/Rename-Video-Files-with-Baseball-Data/blob/main/_Known%20Pitches/video%20folder%202%20after%20rename.png)
 
 # Random Video
 **_Whatever device your video is stored on, copy it to a folder on you hard drive or other drive. Never work with the original video file in case you royally mess it up!_**
 - In R we are going to be loading the CSV and the folder details of our videos. It'll give us a time when the pitch was captured by the system, as well as a time stamp when the video was triggered.
 - With this version, we'll be using the first event captured on video as our starting point, so it's important to remember! Once we filter to our first captured video clip in the csv, we create a time difference column to show how much time has passed since the first clip. In both the video_details df and csv df, they should be within 5 seconds of each other. The code will then join on the nearest time stamp and voila!
+
+Video folder before renaming
+
+![](https://github.com/tony-baseball/Rename-Video-Files-with-Baseball-Data/blob/main/_Random%20Pitches/video%20folder%201%20before%20rename.png)
+
+csv dataframe
+
+![](https://github.com/tony-baseball/Rename-Video-Files-with-Baseball-Data/blob/main/_Random%20Pitches/df%201%20csv_rename.png)
+
+video_details dataframe 
+
+![](https://github.com/tony-baseball/Rename-Video-Files-with-Baseball-Data/blob/main/_Random%20Pitches/df%202%20video_details.png)
+
+The combined/joined dataframe!!!!!!
+
+![](https://github.com/tony-baseball/Rename-Video-Files-with-Baseball-Data/blob/main/_Random%20Pitches/df%203%20combined.png)
+
+
+Look at those files renamed!!!
+
+![](https://github.com/tony-baseball/Rename-Video-Files-with-Baseball-Data/blob/main/_Random%20Pitches/video%20folder%202%20after%20rename.png)
